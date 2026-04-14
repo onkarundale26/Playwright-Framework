@@ -1,7 +1,7 @@
 import { test, expect } from "../fixtures/baseTest";
 import { HomePage } from "../pages/HomePage";
 import { RegisterPage } from "../pages/RegisterPage";
-import { generateUser } from "../utils/testData";
+import { TestDataUtil } from "../utils/testData";
 
 test.describe("User Registration", () => {
 
@@ -18,7 +18,7 @@ test.describe("User Registration", () => {
   test("should register a new user successfully", async ({ page }) => {
     const home = new HomePage(page);
     const register = new RegisterPage(page);
-    const user = generateUser();
+    const user = TestDataUtil.generateUser();
 
     await home.navigateToRegister();
     await register.fillRegistrationForm(user);
